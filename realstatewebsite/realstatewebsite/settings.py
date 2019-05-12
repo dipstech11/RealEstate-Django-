@@ -39,7 +39,9 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
 
     #my app
-    'pages'
+    'pages',
+    'listings',
+    'realtors'
 
 
 ]
@@ -80,8 +82,11 @@ WSGI_APPLICATION = 'realstatewebsite.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'realstatedb',
+        'USER': "postgres",
+        'PASSWORD': "DPKydv@123",
+        'HOST':"localhost"
     }
 }
 
