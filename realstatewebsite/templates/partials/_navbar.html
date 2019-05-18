@@ -42,46 +42,52 @@
         <ul class="navbar-nav ml-auto">
           {% if user.is_authenticated %}
             <li
-            {% if 'dashboard' in request.path %}
-              class="nav-item active mr-3"
-            {% else %}
-              class="nav-item mr-3"
-            {% endif %}
-            >
+                {% if 'dashboard' in request.path %}
+                  class="nav-item active mr-3"
+                {% else %}
+                  class="nav-item mr-3"
+                {% endif %}
+                >
+                  <a class="nav-link" href="{% url 'dashboard' %}">
+                   Welcome {{ user.username }} (Dashboard)</a>
+                </li>
 
-               Welcome {{ user.username }} (Dashboard)</a>
-            </li>
-            <li class="nav-item mr-3">
-              <a href="javascript:{document.getElementById('logout').submit()}" class="nav-link">
-                <i class="fas fa-sign-out-alt"></i> Logout
-              </a>
+                <li class="nav-item mr-3">
+                  <a href="javascript:{document.getElementById('logout').submit()}"
+                      class="nav-link">
+                    <i class="fas fa-sign-out-alt"></i> Logout
+                  </a>
+                  <form  id="logout" action="{% url 'logout' %}" method="POST">
+                    {% csrf_token %} 
+                    <input type="hidden">
+                  </form>
 
-                {% csrf_token %}
-                <input type="hidden">
-              </form>
-            </li>
+                    <input type="hidden">
+
+                </li>
+
           {% else %}
-            <li
-            {% if 'register' in request.path %}
-              class="nav-item active mr-3"
-            {% else %}
-              class="nav-item mr-3"
-            {% endif %}
-            >
-            <a class="nav-link" href="{% url 'register' %}">
-                         <i class="fas fa-user-plus"></i> Register</a>
-            </li>
-            <li
-            {% if 'login' in request.path %}
-              class="nav-item active mr-3"
-            {% else %}
-              class="nav-item mr-3"
-            {% endif %}
-            >
-            <a class="nav-link" href="{% url 'login' %}">
-                           <i class="fas fa-sign-in-alt"></i>LOGIN</a>
+                <li
+                {% if 'register' in request.path %}
+                  class="nav-item active mr-3"
+                {% else %}
+                  class="nav-item mr-3"
+                {% endif %}
+                >
+                <a class="nav-link" href="{% url 'register' %}">
+                             <i class="fas fa-user-plus"></i> Register</a>
+                </li>
+                <li
+                {% if 'login' in request.path %}
+                  class="nav-item active mr-3"
+                {% else %}
+                  class="nav-item mr-3"
+                {% endif %}
+                >
+                <a class="nav-link" href="{% url 'login' %}">
+                               <i class="fas fa-sign-in-alt"></i>LOGIN</a>
 
-            </li>
+                </li>
           {% endif %}
         </ul>
       </div>
