@@ -131,7 +131,7 @@ USE_TZ = True
 
 STATIC_ROOT = os.path.join(BASE_DIR, "static")
 STATIC_URL = '/static/'
-STATICFILES_DIRS = [
+STATICFILES_DIRS = [ 
     os.path.join(BASE_DIR, 'realstatewebsite/static')
 ]
 
@@ -139,3 +139,9 @@ STATICFILES_DIRS = [
 
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 MEDIA_URL = '/media/'
+
+# MESSAGE settings
+from django.contrib.messages import constants  as messages
+MESSAGE_TAGS = {
+    messages.ERROR: "danger",
+}
