@@ -43,7 +43,8 @@ INSTALLED_APPS = [
     'pages',
     'listings',
     'realtors',
-    'accounts'
+    'accounts',
+    'contacts',
 
 
 ]
@@ -131,7 +132,7 @@ USE_TZ = True
 
 STATIC_ROOT = os.path.join(BASE_DIR, "static")
 STATIC_URL = '/static/'
-STATICFILES_DIRS = [ 
+STATICFILES_DIRS = [
     os.path.join(BASE_DIR, 'realstatewebsite/static')
 ]
 
